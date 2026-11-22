@@ -1,0 +1,30 @@
+{
+  "version": 8,
+  "name": "ha-bridge",
+  "nixpkgs": "nixos-unstable",
+  "egress": [{ "to": "$MQTT_HOST", "port": 1883 }],
+  "api": ["read", "control"],
+  "variables": [
+    {
+      "name": "MQTT_HOST",
+      "kind": "address",
+      "description": "The IPv4 address of Home Assistant's MQTT broker (the Mosquitto add-on runs on the Home Assistant machine). The bridge connects to it on port 1883.",
+      "required": true
+    },
+    {
+      "name": "MQTT_PASSWORD",
+      "kind": "secret",
+      "description": "Password of the bridge's user on the MQTT broker. Create the user in Home Assistant (Settings, People, Users) or in the Mosquitto add-on.",
+      "required": true
+    },
+    {
+      "name": "MQTT_USERNAME",
+      "kind": "env",
+      "description": "The bridge's user on the MQTT broker. Unset: homelab.",
+      "required": false
+    }
+  ],
+  "health": {
+    "units": ["homelab-ha.service"]
+  }
+}
