@@ -1,7 +1,8 @@
 {
-  "version": 8,
+  "version": 9,
   "name": "ha-bridge",
   "nixpkgs": "nixos-unstable",
+  "icon": "home-assistant",
   "egress": [{ "to": "$MQTT_HOST", "port": 1883 }],
   "api": ["read", "control"],
   "variables": [
@@ -26,5 +27,8 @@
   ],
   "health": {
     "units": ["homelab-ha.service"]
-  }
+  },
+  "services": [
+    { "unit": "homelab-ha.service", "icon": "home-assistant" }
+  ]
 }
