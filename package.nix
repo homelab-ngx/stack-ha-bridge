@@ -11,7 +11,7 @@ buildGoModule {
       ./internal
     ];
   };
-  vendorHash = "sha256-EQjgSjvv1WOb0DffOq93qlu1/6DlXCVwc4zyoXrEctw=";
+  vendorHash = "sha256-3YwL6s3ws3CsJBZJxvpHbjhvu9GK1GefcvfYsRIRCqQ=";
   env.CGO_ENABLED = "0";
   ldflags = [
     "-s"
